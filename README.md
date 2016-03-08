@@ -1,6 +1,6 @@
 ## Overview
 
-<img src="workflow.png" width="200" />
+![Workflow overview](workflow.png)
 
 ## Provision
 

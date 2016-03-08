@@ -1,4 +1,6 @@
 digraph {
+	rankdir=LR;
+
 	node [style="filled", color="#90EE90"];
 	provision [color="#f08080"];
 	"environment/install" [color="#f08080"];

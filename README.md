@@ -1,5 +1,8 @@
 ## Overview
 
+(red roles require root privileges on the target host, green roles do
+not)
+
 ![Workflow overview](workflow.png)
 
 ## Provision

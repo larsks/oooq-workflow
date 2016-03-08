@@ -19,6 +19,13 @@ This step can be skipped if you can already log into your target host
 as a non-root user with `sudo` privileges and you are comfortable
 creating your own Ansible inventory files.
 
+Inventory after role completes:
+
+| Host    | In inventory | In SSH config |
+|---------|--------------|---------------|
+|localhost| X            |               |
+|virthost | X            | X             |
+
 ## Environment/install
 
 :exclamation: This role requires privileged access to the target host.
@@ -35,6 +42,13 @@ and user accounts to run the quickstart:
 This role only needs to be run once on your target host (unless you
 run the `environment/cleanup` role).
 
+Inventory after role completes:
+
+| Host    | In inventory | In SSH config |
+|---------|--------------|---------------|
+|localhost| X            |               |
+|virthost | X            | X             |
+
 ## Libvirt/setup
 
 :green_heart: This role can run exclusively as an unprivileged user.
@@ -48,10 +62,24 @@ the undercloud and overcloud:
 - Add undercloud to Ansible inventory
 - Arrange for ssh access to the undercloud host
 
+Inventory after role completes:
+
+| Host      | In inventory | In SSH config |
+|-----------|--------------|---------------|
+|localhost  | X            |               |
+|virthost   | X            | X             |
+|undercloud | X            | X             |
+
 ## Tripleo/undercloud
 
 :green_heart: This role can run exclusively as an unprivileged user.
 Installs the undercloud.
+
+| Host      | In inventory | In SSH config |
+|-----------|--------------|---------------|
+|localhost  | X            |               |
+|virthost   | X            | X             |
+|undercloud | X            | X             |
 
 ## Tripleo/overcloud
 
@@ -59,12 +87,27 @@ Installs the undercloud.
 
 Installs and validates the overcloud.
 
+Inventory after role completes:
+
+| Host      | In inventory | In SSH config |
+|-----------|--------------|---------------|
+|localhost  | X            |               |
+|virthost   | X            | X             |
+|undercloud | X            | X             |
+
 ## Libvirt/teardown
 
 :green_heart: This role can run exclusively as an unprivileged user.
 
 Removes the undercloud and overcloud virtual hosts and their
 associated storage from the remote libvirt environment.
+
+Inventory after role completes:
+
+| Host      | In inventory | In SSH config |
+|-----------|--------------|---------------|
+|localhost  | X            |               |
+|virthost   | X            | X             |
 
 ## Environment/cleanup
 
@@ -74,3 +117,11 @@ Reverses most of the changes made by the `environment/install` role.
 
 - Destroy libvirt networks created by tripleo-quickstart and removes
   associated configuration from the qemu bridge helper
+
+Inventory after role completes:
+
+| Host      | In inventory | In SSH config |
+|-----------|--------------|---------------|
+|localhost  | X            |               |
+|virthost   | X            | X             |
+

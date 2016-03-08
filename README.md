@@ -1,5 +1,4 @@
 ## Overview
 
-![Overview of tripleo-quickstart workflow](workflow.svg)
-
+![Overview of tripleo-quickstart workflow](workflow.png)
 

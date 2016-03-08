@@ -1,4 +1,7 @@
+%.png: %.dot
+	dot -Tpng -o $@ $<
+
 %.svg: %.dot
 	dot -Tsvg -o $@ $<
 
-ALL: workflow.svg
+ALL: workflow.png

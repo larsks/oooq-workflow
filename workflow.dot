@@ -1,12 +1,12 @@
 digraph {
-	node [style="filled", color="lightgreen"];
-	provision [color="red"];
-	"environment/install" [color="red"];
+	node [style="filled", color="#90EE90"];
+	provision [color="#f08080"];
+	"environment/install" [color="#f08080"];
 	"libvirt/setup";
 	"tripleo/undercloud";
 	"tripleo/overcloud";
 	"libvirt/teardown";
-	"environment/cleanup" [color="red"];
+	"environment/cleanup" [color="#f08080"];
 
 	provision -> "environment/install";
 	"environment/install" -> "libvirt/setup";

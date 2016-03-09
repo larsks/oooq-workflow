@@ -1,6 +1,4 @@
 digraph {
-	rankdir=LR;
-
 	graph [pad="0.5", ranksep="0.25", nodesep="2"];
 
 	node [style="filled", color="#90EE90"];
@@ -14,9 +12,16 @@ digraph {
 
 	provision -> "environment/install";
 	"environment/install" -> "libvirt/setup";
-	"libvirt/setup" -> "tripleo/undercloud";
-	"tripleo/undercloud" -> "tripleo/overcloud";
-	"tripleo/overcloud" -> "libvirt/teardown";
-	"libvirt/teardown" -> "libvirt/setup" [label="repeat as necessary"];
+
+	subgraph cluster_unprivileged {
+		style = filled;
+		color = lightblue;
+		label = "Unprivileged operations";
+		"libvirt/setup" -> "tripleo/undercloud";
+		"tripleo/undercloud" -> "tripleo/overcloud";
+		"tripleo/overcloud" -> "libvirt/teardown";
+		"libvirt/teardown" -> "libvirt/setup" [label="repeat as necessary"];
+	}
+
 	"libvirt/teardown" -> "environment/cleanup";
 }

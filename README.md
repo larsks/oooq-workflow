@@ -40,7 +40,7 @@ and user accounts to run the quickstart:
   be used by an unprivileged user.
 
 This role only needs to be run once on your target host (unless you
-run the `environment/cleanup` role).
+run the `environment/teardown` role).
 
 Inventory after role completes:
 
@@ -113,7 +113,7 @@ Inventory after role completes:
 
 :exclamation: This role requires privileged access to the target host.
 
-Reverses most of the changes made by the `environment/install` role.
+Reverses most of the changes made by the `environment/setup` role.
 
 - Destroy libvirt networks created by tripleo-quickstart and removes
   associated configuration from the qemu bridge helper

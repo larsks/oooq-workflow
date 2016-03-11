@@ -3,15 +3,15 @@ digraph {
 
 	node [style="filled", color="#90EE90"];
 	provision [color="#f08080"];
-	"environment/install" [color="#f08080"];
+	"environment/setup" [color="#f08080"];
 	"libvirt/setup";
 	"tripleo/undercloud";
 	"tripleo/overcloud";
 	"libvirt/teardown";
-	"environment/cleanup" [color="#f08080"];
+	"environment/teardown" [color="#f08080"];
 
-	provision -> "environment/install";
-	"environment/install" -> "libvirt/setup";
+	provision -> "environment/setup";
+	"environment/setup" -> "libvirt/setup";
 
 	subgraph cluster_unprivileged {
 		style = filled;
@@ -23,5 +23,5 @@ digraph {
 		"libvirt/teardown" -> "libvirt/setup" [label="repeat as necessary"];
 	}
 
-	"libvirt/teardown" -> "environment/cleanup";
+	"libvirt/teardown" -> "environment/teardown";
 }
